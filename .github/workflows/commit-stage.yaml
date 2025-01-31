@@ -3,7 +3,7 @@ on: push
 
 env:
     REGISTRY: ghcr.io
-    IMAGE_NAME: 97lynk/catalog-service
+    IMAGE_NAME: 97lynk/config-service
     VERSION: latest
 
 jobs:
