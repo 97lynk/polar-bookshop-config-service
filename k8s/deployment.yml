@@ -27,3 +27,15 @@ spec:
                     env:
                         -   name: SPRING_CLOUD_CONFIG_URI
                             value: http://config-service
+                    livenessProbe:
+                        httpGet:
+                            path: /actuator/health/liveness
+                            port: 8888
+                        initialDelaySeconds: 10
+                        periodSeconds: 5
+                    readinessProbe:
+                        httpGet:
+                            path: /actuator/health/readiness
+                            port: 8888
+                        initialDelaySeconds: 5
+                        periodSeconds: 15

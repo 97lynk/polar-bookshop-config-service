@@ -21,3 +21,30 @@ spring:
                     clone-on-start: true
                     force-pull: true
                     default-label: main
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include:
+                    - refresh
+                    - health
+                    - metrics
+                    - prometheus
+
+    endpoint:
+        health:
+            show-components: always
+            show-details: always
+            probes:
+                enabled: true
+            group:
+                readiness:
+                    include:
+                        - readinessState
+                liveness:
+                    include:
+                        - livenessState
+    metrics:
+        tags:
+            application: ${spring.application.name}
